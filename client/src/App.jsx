@@ -44,16 +44,16 @@ const App = () => {
 
   return (
     <>
-      <div className='w-screen h-screen bg-gray-200 flex justify-center items-center'>
+      <div className='w-screen h-screen bg-gradient-to-b from-green-400 to-blue-500 flex justify-center items-center'>
         {chatActive ? (
-          <div className='rounded-md w-full md:w-[80vw] mx-auto '>
+          <div className='rounded-md w-full md:w-[80vw] mx-auto bg-white bg-opacity-80 '>
             <h1 className='text-center font-bold text-xl my-2 uppercase'>Squad Chat</h1>
             <div>
               <div id="messageContainer" ref={messageContainerRef} className='overflow-scroll h-[80vh] lg:h-[60vh]'>
                 {messages.map((message, index) => {
                   return (
                     <div key={index} className={`flex rounded-md shadow-md my-5 w-fit ${username === message.user && "ml-auto"}`}>
-                      <div className='bg-green-300 flex justify-center items-center rounded-lg'>
+                      <div className='bg-blue-300 flex justify-center items-center rounded-lg'>
                         <h3 className='font-bold text-lg px-2'>{message.user.charAt(0).toUpperCase()}</h3>
                       </div>
                       <div className='px-2 bg-white rounded-md'>
@@ -73,7 +73,7 @@ const App = () => {
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                 />
-                <button type='submit' className='px-3 py-2 bg-green-400 text-white rounded-md font-bold'>
+                <button type='submit' className='px-3 py-2 bg-blue-400 text-white rounded-md font-bold'>
                   Send
                 </button>
               </form>
@@ -92,7 +92,7 @@ const App = () => {
             <button
               type='submit'
               onClick={() => !username == "" && setChatActive(true)}
-              className='bg-green-400 text-white px-3 py-2 rounded-md font-semibold'
+              className='bg-blue-400 text-white px-3 py-2 rounded-md font-semibold'
             >
               Start Chat
             </button>
