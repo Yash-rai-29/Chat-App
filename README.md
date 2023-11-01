@@ -44,15 +44,15 @@ Before you get started, make sure you have the following installed:
    cd chat-app
 2. To run the client (React frontend):
 
-cd client
-npm install
-npm start
+- cd client
+- npm install
+- npm start
 
 3. To run the server (Node.js backend with Socket.io):
 
-cd server
-npm install
-nodemon index.js
+- cd server
+- npm install
+- nodemon index.js
 
 
 With our latest update, all messages are now securely stored in Firebase, ensuring real-time access for users. No additional steps are required for Firebase integration.
