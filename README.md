@@ -55,8 +55,4 @@ Before you get started, make sure you have the following installed:
 - nodemon index.js
 
 
-<<<<<<< HEAD
-With our latest update, all messages are now securely stored in Firebase, ensuring real-time access for users. No additional steps are required for Firebase integration.
-=======
-With our latest update, all messages are now securely stored in Firebase, ensuring real-time access for users. No additional steps are required for Firebase integration.
->>>>>>> 72e8a8894ba81a58cba84bc94a4f0da6d38f0ecd
+
