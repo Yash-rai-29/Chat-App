@@ -28,7 +28,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const server = http.createServer(app);
-const io = socketio(server);
+const io = new Server(server, {
+    cors: {
+        origin: "https://chat-app-psi-flame.vercel.app/",
+        methods: ["GET", "POST"],
+    },
+});
 
 let connectedUsers = 0;
 const maxUsers = 144; // Set the maximum number of users
