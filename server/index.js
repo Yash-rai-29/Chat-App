@@ -12,7 +12,15 @@ admin.initializeApp({
     databaseURL: "https://mychat-b309a-default-rtdb.firebaseio.com", // Replace with your Firebase Realtime Database URL
 });
 
-app.use(cors());
+
+
+const corsOptions = {
+    origin: 'https://chat-app-psi-flame.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  };
+  
+app.use(cors(corsOptions));
+  
 
 const server = http.createServer(app);
 const io = new Server(server, {
