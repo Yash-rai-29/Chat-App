@@ -19,7 +19,6 @@ const io = new Server(server, {
     cors: {
         origin: "https://chat-app-psi-flame.vercel.app",
         methods: ["GET", "POST"],
-        credential: true
     },
 });
 
@@ -59,3 +58,4 @@ io.on("connection", (socket) => {
     });
 });
 
+server.listen(5000, () => console.log("Server running at port 5000"));
