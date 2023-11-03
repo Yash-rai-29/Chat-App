@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const cors = require("cors");
-const { Server } = require("socket.io");
+const socketio = require('socket.io');
 const admin = require("firebase-admin"); // Import Firebase Admin SDK
 
 // Initialize Firebase Admin SDK with your service account key
@@ -13,27 +13,10 @@ admin.initializeApp({
 });
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = ["https://chat-app-psi-flame.vercel.app"]; // Add your domain here
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 const server = http.createServer(app);
-const io = new Server(server, {
-    cors: {
-        origin: "https://chat-app-psi-flame.vercel.app/",
-        methods: ["GET", "POST"],
-    },
-});
+const io = socketio(server);
 
 let connectedUsers = 0;
 const maxUsers = 144; // Set the maximum number of users
