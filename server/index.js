@@ -13,14 +13,9 @@ admin.initializeApp({
 });
 
 
+const PORT = process.env.PORT || 5000;
 
-const corsOptions = {
-    origin: 'https://chat-app-psi-flame.vercel.app',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  };
-  
-app.use(cors(corsOptions));
-  
+app.use(cors());
 
 const server = http.createServer(app);
 // Set up CORS for socket.io
@@ -68,7 +63,6 @@ io.on("connection", (socket) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
    console.log(`🎯 Server is running on PORT: ${PORT}`);
 });
