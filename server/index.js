@@ -16,12 +16,12 @@ admin.initializeApp({
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
-const io = socketio(server);
+
 
 const server = http.createServer(app);
 // Set up CORS for socket.io
 
-
+const io = socketio(server);
 app.get("/", (req, res) => { res.json ("Hello"); })
 
 
