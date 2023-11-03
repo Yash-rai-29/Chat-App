@@ -11,7 +11,7 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://mychat-b309a-default-rtdb.firebaseio.com", // Replace with your Firebase Realtime Database URL
 });
-
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
