@@ -23,6 +23,8 @@ const io = new Server(server, {
     },
 });
 
+app.get("/", (req, res) => { res.json ("Hello"); })
+
 let connectedUsers = 0;
 const maxUsers = 4; // Set the maximum number of users
 
