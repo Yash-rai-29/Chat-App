@@ -1,16 +1,17 @@
 {
     "version": 2,
     "build": {
-      "env": {
-        "YOUR_ENV_VARIABLE": "some-value"
-      },
-      "use": "@vercel/node"
+      "functions": {
+        "api/index.js": {
+          "runtime": "nodejs14.x"
+        }
+      }
     },
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/"
+        "dest": "/api/index.js"
       }
-    ]
+    }
   }
   
