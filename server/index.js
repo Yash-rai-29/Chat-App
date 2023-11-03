@@ -20,8 +20,14 @@ app.use(cors());
 
 const server = http.createServer(app);
 // Set up CORS for socket.io
+const io = new Server(server, {
+    cors: {
+      origin: 'https://chat-app-psi-flame.vercel.app',
+      methods: ['GET', 'POST'],
+    },
+  });
+  
 
-const io = socketio(server);
 app.get("/", (req, res) => { res.json ("Hello"); })
 
 
