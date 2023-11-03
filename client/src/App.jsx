@@ -24,9 +24,7 @@ const App = () => {
         messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
       }
     });
-    socket.on("limit-reached", (message) => {
-      alert(message); // Display a pop-up message
-      setChatActive(false);
+
   });
   }, [messages]);
 
