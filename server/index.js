@@ -29,20 +29,12 @@ const io = new Server(server, {
 
 app.get("/", (req, res) => { res.json ("Hello"); })
 
-let connectedUsers = 0;
-const maxUsers = 4; // Set the maximum number of users
+
 
 io.on("connection", (socket) => {
     console.log(`User connected: ${socket.id}`);
 
-    if (connectedUsers < maxUsers) {
-        connectedUsers++;
-        io.emit("user-joined", `User ${connectedUsers} has joined.`);
-    } else {
-        // Send a message to the client that the limit is reached
-        socket.emit("limit-reached", "Chat room is full. The limit is 4 users.");
-        socket.disconnect();
-    }
+    
 
     socket.on("send-message", (message) => {
         console.log(message);
