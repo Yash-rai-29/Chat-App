@@ -14,14 +14,21 @@ admin.initializeApp({
 const PORT = process.env.PORT || 5000;
 
 // Define your CORS options
-const corsOptions = {
-    origin: 'https://chat-app-psi-flame.vercel.app', // Replace with your client's URL
+// Use the cors middleware to allow requests from your frontend app
+app.use(cors({
+    origin: 'https://chat-app-psi-flame.vercel.app', // Replace with your frontend app's URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type,Authorization', // Add any additional headers as needed
-  };
+  }));
   
-  app.use(cors(corsOptions));
-  
+app.use((req, res, next) => {
+    // Set custom headers for Mozilla Firefox
+    res.setHeader('Access-Control-Allow-Origin', 'https://chat-app-psi-flame.vercel.app'); // Replace with your frontend app's URL
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  }); 
 
 const server = http.createServer(app);
 const io = socketio(server);
