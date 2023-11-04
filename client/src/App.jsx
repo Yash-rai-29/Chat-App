@@ -62,7 +62,7 @@ const App = () => {
       <div className='w-screen h-screen bg-gradient-to-b from-blue-200 to-blue-500 flex justify-center items-center'>
         {chatActive ? (
           <div className='rounded-md w-full md:w-[80vw] mx-auto bg-white bg-opacity-80 '>
-            <h1 className='text-center font-bold text-xl my-2 uppercase'>Squad Chat</h1>
+            <h1 className='text-center font-bold text-xl my-2 uppercase'>Chat App</h1>
             <div>
               <div id="messageContainer" ref={messageContainerRef} className='bg-yellow-200 overflow-scroll h-[80vh] lg:h-[60vh]'>
                 {messages.map((message, index) => {
