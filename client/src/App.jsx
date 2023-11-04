@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import io from "socket.io-client";
 
-const ENDPOINT = 'https://chat-zwf1.onrender.com:10000';
+const ENDPOINT = 'https://chat-app-lddp.vercel.app/';
 const socket = io(ENDPOINT);
 
 const App = () => {
