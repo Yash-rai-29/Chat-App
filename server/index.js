@@ -33,6 +33,14 @@ app.use((req, res, next) => {
 const server = http.createServer(app);
 const io = socketio(server);
 
+io.on("connection", (socket) => {
+    const transport = socket.conn.transport.name; // in most cases, "polling"
+  
+    socket.conn.on("upgrade", () => {
+      const upgradedTransport = socket.conn.transport.name; // in most cases, "websocket"
+    });
+  });
+  
 let connectedUsers = 0;
 const maxUsers = 144; // Set the maximum number of users
 

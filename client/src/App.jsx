@@ -1,8 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react';
 import io from "socket.io-client";
 
+
+
 const ENDPOINT = 'https://chat-zwf1.onrender.com';
 const socket = io(ENDPOINT);
+
+socket.on("connect", () => {
+  const transport = socket.io.engine.transport.name; // in most cases, "polling"
+
+  socket.io.engine.on("upgrade", () => {
+    const upgradedTransport = socket.io.engine.transport.name; // in most cases, "websocket"
+  });
+});
 
 const App = () => {
   const [username, setUserName] = useState("");
