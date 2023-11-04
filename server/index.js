@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const cors = require("cors");
-const socketio = require("socket.io");
+const {Server} = require("socket.io");
 const admin = require("firebase-admin");
 
 // Initialize Firebase Admin SDK with your service account key
