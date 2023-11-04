@@ -28,13 +28,15 @@ const io = new Server(server, {
 
 let connectedUsers = 0;
 const maxUsers = 144; // Set the maximum number of users
-io.on("connection", (socket) => {
-    const transport = socket.conn.transport.name; // in most cases, "polling"
+
+// io.on("connection", (socket) => {
+//     const transport = socket.conn.transport.name; // in most cases, "polling"
   
-    socket.conn.on("upgrade", () => {
-      const upgradedTransport = socket.conn.transport.name; // in most cases, "websocket"
-    });
-  });
+//     socket.conn.on("upgrade", () => {
+//       const upgradedTransport = socket.conn.transport.name; // in most cases, "websocket"
+//     });
+//   });
+
 io.on("connection", (socket) => {
   console.log(`User connected: ${socket.id}`);
 
