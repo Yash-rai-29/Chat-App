@@ -13,7 +13,15 @@ admin.initializeApp({
 });
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Define your CORS options
+const corsOptions = {
+    origin: 'https://chat-app-psi-flame.vercel.app', // Replace with your client's URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type,Authorization', // Add any additional headers as needed
+  };
+  
+  app.use(cors(corsOptions));
+  
 
 const server = http.createServer(app);
 const io = socketio(server);
