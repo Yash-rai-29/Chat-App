@@ -98,6 +98,7 @@ const App = () => {
           <div className='w-screen h-screen flex justify-center items-center gap-2'>
             <input
               type='text'
+              placeholder='Type Your Name ...'
               name=''
               id=''
               value={username}
